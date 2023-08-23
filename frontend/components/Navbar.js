@@ -1,11 +1,9 @@
 import React from "react";
 
-const Navbar = ({ modeChanger, darkTheme }) => {
+const Navbar = (props) => {
   const toggleMode = (e) => {
     e.preventDefault();
-    {
-      modeChanger();
-    }
+    props.setGeceModu(!props.geceModu);
   };
 
   return (
@@ -14,7 +12,7 @@ const Navbar = ({ modeChanger, darkTheme }) => {
       <div className="dark-mode__toggle">
         <div
           onClick={toggleMode}
-          className={darkTheme ? "toggle toggled" : "toggle"}
+          className={props.geceModu ? "toggle toggled" : "toggle"}
         />
       </div>
     </nav>

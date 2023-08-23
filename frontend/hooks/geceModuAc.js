@@ -1,11 +1,10 @@
 import { useState } from "react";
+import useLocalStorage from "./localStorageKullan";
 
-export const useTheme = (initialData) => {
-  const [nightMode, setNightMode] = useState(initialData);
+const useGeceModu = (key, initialMode) => {
+  const [darkMode, setDarkMode] = useLocalStorage(key, initialMode);
 
-  const handleMode = () => {
-    setNightMode(!nightMode);
-  };
-
-  return [nightMode, handleMode];
+  return [darkMode, setDarkMode];
 };
+
+export default useGeceModu;
